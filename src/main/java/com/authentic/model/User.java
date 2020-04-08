@@ -1,6 +1,7 @@
 package com.authentic.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.beans.factory.annotation.Autowired;
 
 //import javax.persistence.Column;
 import javax.validation.constraints.NotEmpty;
@@ -17,10 +18,14 @@ public class User extends AbstractEntity {
     private Class profile;
 
     public User(String username, String password, Class profile) {
+        super();
         this.username = username;
         this.password = password;
         this.profile = profile;
+
     }
+
+
 
     public Class getProfile() {
         return profile;

@@ -11,15 +11,13 @@ import java.io.Serializable;
 //@MappedSuperclass
 public abstract class Person extends AbstractEntity {
 
-    @NotEmpty
-    private String nome;
-    private User user;
+   // @NotEmpty
+    protected String nome;
+    protected User user;
 
-    @Autowired
-    public Person(String nome, String username, String password, Class profile) {
+    public Person(String nome, User user) {
         this.nome = nome;
-        this.user = new User(username, password, profile);
-
+        this.user = user;
     }
 
     public String getNome() {
