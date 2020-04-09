@@ -1,31 +1,31 @@
 package com.authentic.model;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 //import javax.persistence.Entity;
 //import javax.persistence.MappedSuperclass;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotEmpty;
-import java.io.Serializable;
 
 
-//@MappedSuperclass
+@MappedSuperclass
 public abstract class Person extends AbstractEntity {
 
-   // @NotEmpty
-    protected String nome;
-    protected User user;
+   @NotEmpty(message = "The field name be provided")
+   protected String name;
+   @OneToOne
+   protected User user;
 
-    public Person(String nome, User user) {
-        this.nome = nome;
+    public Person(String name, User user) {
+        this.name = name;
         this.user = user;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public User getUser() {
@@ -39,7 +39,7 @@ public abstract class Person extends AbstractEntity {
     @Override
     public String toString() {
         return "Person{" +
-                "nome='" + nome + '\'' +
+                "nome='" + name + '\'' +
                 '}';
     }
 }

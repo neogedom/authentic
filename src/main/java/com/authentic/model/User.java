@@ -4,17 +4,20 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.beans.factory.annotation.Autowired;
 
 //import javax.persistence.Column;
+import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.validation.constraints.NotEmpty;
 
+@Entity
 public class User extends AbstractEntity {
 
-//    @NotEmpty
-//    @Column(unique = true)
+    @NotEmpty(message = "The field username must be provided")
+    @Column(unique = true)
     private String username;
-//    @NotEmpty
-//    @JsonIgnore
+    @NotEmpty(message = "The field password must be provided")
+    @JsonIgnore
     private String password;
-//    @NotEmpty
+    @NotEmpty(message = "The field profile must be provided")
     private Class profile;
 
     public User(String username, String password, Class profile) {

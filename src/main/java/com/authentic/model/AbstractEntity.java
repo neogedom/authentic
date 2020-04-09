@@ -4,13 +4,18 @@ package com.authentic.model;
 //import javax.persistence.GenerationType;
 //import javax.persistence.Id;
 //import javax.persistence.MappedSuperclass;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 import java.io.Serializable;
 import java.util.Objects;
 
-//@MappedSuperclass
+@MappedSuperclass
 public class AbstractEntity implements Serializable {
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     public Long getId() {
